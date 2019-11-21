@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <h1>React</h1>
+    <div id="root">hoge</div>
+    <div id="root2">var</div>
+    <div id="root3">
+        <ul>
+            <li>foo</li>
+            <li>foo</li>
+            <li>foo</li>
+        </ul>
+    </div>
+
+    <script type="text/babel">
+        let dom = document.querySelector('#root')
+        let dom2 = document.querySelector('#root2')
+
+        let element = React.createElement('p', {}, 'Hello React')
+        let element2 = React.createElement('div', {}, [
+            React.createElement(
+                'h2', {}, 'React Sample Page'
+            ),
+            React.createElement(
+                'h2', {}, 'From Yutaka'
+            )
+        ])
+
+        ReactDOM.render(element, dom);
+        ReactDOM.render(element2, dom2);
+
+        let dom3 = document.querySelector('#root3')
+        let element3 = React.createElement('div', {}, [
+            React.createElement('ul', {}, [
+                React.createElement('li', {}, 'Apple'),
+                React.createElement('li', {}, 'Banana'),
+                React.createElement('li', {}, 'Grape')
+            ])
+        ])
+        ReactDOM.render(element3, dom3);
+    </script>
+</body>
+</html>
